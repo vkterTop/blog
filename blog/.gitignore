@@ -18,9 +18,5 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# generated content
-src/content/posts/*
-!src/content/posts/.gitkeep
-
 # search index
 public/search.json
