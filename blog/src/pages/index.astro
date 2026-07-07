@@ -1,0 +1,110 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+import Footer from '../components/Footer.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+import PostCard from '../components/PostCard.astro';
+import SearchBox from '../components/SearchBox.astro';
+import { categorySlugs } from '../utils/pinyin.js';
+import { getPostUrlPath, getCategoryUrlPath } from '../utils/slug.js';
+import { columns, getColumnSlug } from '../utils/columns.js';
+
+const allPosts = await getCollection('posts');
+const sortedPosts = allPosts.sort((a, b) => {
+  const da = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const db = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+  return db - da;
+});
+
+const latestPosts = sortedPosts.slice(0, 8);
+const defaultColumnSlug = getColumnSlug();
+
+const categoryEntries = Object.entries(categorySlugs).map(([name, slug]) => {
+  const count = allPosts.filter((p) => p.slug.startsWith(`${slug}-`)).length;
+  const sample = allPosts.find((p) => p.slug.startsWith(`${slug}-`));
+  const keywords = sample?.data?.keywords?.slice(0, 3) || [name];
+  return { name, slug, count, keywords };
+}).filter((c) => c.count > 0);
+
+const totalPosts = allPosts.length;
+---
+
+<BaseLayout description="素笺墨韵，中文历史与文化长文。">
+  <Navbar slot="header" />
+  <MobileMenu slot="header" />
+
+  <main slot="main" class="flex-1">
+    <!-- Hero -->
+    <section class="relative min-h-[70dvh] overflow-hidden border-b border-paper-dark bg-paper">
+      <div class="absolute inset-0 ink-placeholder opacity-40"></div>
+      <div class="relative mx-auto max-w-7xl px-4 py-16 md:px-6 lg:px-8 lg:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[50dvh]">
+          <div class="flex flex-col gap-6">
+            <div class="inline-flex items-center gap-3">
+              <span class="font-seal text-5xl md:text-6xl text-vermilion">皇汉</span>
+              <span class="font-serif text-3xl md:text-4xl font-semibold tracking-wide text-ink">学堂</span>
+            </div>
+            <h1 class="font-serif text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug text-ink max-w-xl">
+              素笺墨韵，中文历史与文化长文
+            </h1>
+            <p class="text-base md:text-lg text-ink-soft leading-relaxed max-w-lg">
+              以宣纸为底、浓墨为文、朱砂为点，荟集历史、文化、汉服、疆域、军事等中文长文，营造书斋案头的沉静阅读体验。
+            </p>
+            <div class="flex flex-wrap items-center gap-4 text-sm text-ink-muted">
+              <span>共 {totalPosts} 篇文章</span>
+              <span class="hidden sm:inline">·</span>
+              <span>{categoryEntries.length} 个分类</span>
+              <span class="hidden sm:inline">·</span>
+              <a href="/zhuanlan/" class="text-vermilion hover:text-vermilion-hover">{columns.length} 个专栏</a>
+            </div>
+            <div class="mt-2">
+              <SearchBox />
+            </div>
+          </div>
+
+          <div class="hidden lg:flex items-center justify-center">
+            <div class="writing-vertical font-seal text-5xl md:text-6xl text-ink/10 select-none">
+              史笔春秋<br />衣冠华夏
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="border-b border-paper-dark bg-paper-muted/50">
+      <div class="mx-auto max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="font-serif text-2xl md:text-3xl font-semibold text-ink">分类</h2>
+          <a href={`/zhuanlan/${defaultColumnSlug}/`} class="text-sm text-vermilion hover:text-vermilion-hover">进入专栏 →</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {categoryEntries.map((c) => (
+            <CategoryCard name={c.name} slug={getCategoryUrlPath(c.slug, defaultColumnSlug).slice(1, -1)} count={c.count} keywords={c.keywords} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Posts -->
+    <section class="bg-paper">
+      <div class="mx-auto max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="font-serif text-2xl md:text-3xl font-semibold text-ink">最新文章</h2>
+          <a href="/archive/" class="text-sm text-vermilion hover:text-vermilion-hover">查看全部 →</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {latestPosts.map((post) => (
+            <PostCard post={{ ...post, slug: getPostUrlPath(post).slice(1, -1) }} />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer slot="footer" />
+  <ScrollToTop />
+</BaseLayout>

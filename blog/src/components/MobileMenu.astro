@@ -1,0 +1,62 @@
+---
+import { getCategorySlug } from '../utils/pinyin.js';
+
+const navLinks = [
+  { label: '首页', href: '/' },
+  { label: '专栏', href: '/zhuanlan/' },
+  { label: '归档', href: '/archive/' },
+  { label: '搜索', href: '/search/' },
+];
+
+const { pathname } = Astro.url;
+---
+
+<div id="mobile-menu" class="fixed inset-0 z-50 hidden bg-paper/98 backdrop-blur-md md:hidden" role="dialog" aria-modal="true">
+  <div class="flex h-14 items-center justify-between px-4 border-b border-paper-dark">
+    <span class="font-serif text-lg font-semibold">皇汉学堂</span>
+    <button id="mobile-menu-close" type="button" aria-label="关闭菜单" class="p-2 text-ink-soft hover:text-ink">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+  </div>
+  <div class="flex flex-col items-center justify-center gap-8 pt-20">
+    {navLinks.map((link) => (
+      <a
+        href={link.href}
+        class={`font-serif text-2xl transition-colors ${
+          pathname === link.href ? 'text-vermilion' : 'text-ink hover:text-vermilion'
+        }`}
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    const openBtn = document.getElementById('mobile-menu-button');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    const menu = document.getElementById('mobile-menu');
+    if (!openBtn || !closeBtn || !menu) return;
+
+    openBtn.addEventListener('click', function () {
+      menu.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', function () {
+      menu.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+
+    menu.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', function () {
+        menu.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+    });
+  })();
+</script>

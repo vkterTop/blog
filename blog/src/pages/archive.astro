@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+import Footer from '../components/Footer.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPostUrlPath } from '../utils/slug.js';
+
+const allPosts = await getCollection('posts');
+const sortedPosts = allPosts.sort((a, b) => {
+  const da = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const db = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+  return db - da;
+});
+
+const grouped = sortedPosts.reduce((acc, post) => {
+  const year = post.data.pubDate ? new Date(post.data.pubDate).getFullYear() : '未知';
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(post);
+  return acc;
+}, {});
+
+const years = Object.keys(grouped).sort((a, b) => Number(b) - Number(a));
+---
+
+<BaseLayout title="归档" description="按年份浏览全部文章。">
+  <Navbar slot="header" />
+  <MobileMenu slot="header" />
+
+  <main slot="main" class="flex-1">
+    <div class="mx-auto max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
+      <header class="mb-10 border-b border-paper-dark pb-6">
+        <h1 class="font-serif text-3xl md:text-4xl font-semibold text-ink">归档</h1>
+        <p class="mt-2 text-ink-soft">共 {sortedPosts.length} 篇文章，按年份倒序排列。</p>
+      </header>
+
+      <div class="space-y-12">
+        {years.map((year) => (
+          <section>
+            <h2 class="font-serif text-2xl font-semibold text-ink mb-6 pb-2 border-b border-paper-dark inline-block">{year}</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {grouped[year].map((post) => (
+                <PostCard post={{ ...post, slug: getPostUrlPath(post).slice(1, -1) }} />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <Footer slot="footer" />
+  <ScrollToTop />
+</BaseLayout>

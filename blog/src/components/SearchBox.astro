@@ -1,0 +1,21 @@
+---
+---
+
+<form id="search-form" class="w-full max-w-2xl" action="/search/" method="get">
+  <div class="flex items-center gap-2 border border-paper-dark bg-paper-muted p-1 focus-within:border-vermilion transition-colors">
+    <input
+      id="search-input"
+      name="q"
+      type="search"
+      placeholder="搜索文章标题与关键词..."
+      autocomplete="off"
+      class="flex-1 bg-transparent px-4 py-3 text-ink placeholder:text-ink-muted outline-none font-body"
+    />
+    <button
+      type="submit"
+      class="px-5 py-3 bg-vermilion text-paper font-medium text-sm hover:bg-vermilion-hover active:scale-[0.98] transition-colors"
+    >
+      搜索
+    </button>
+  </div>
+</form>

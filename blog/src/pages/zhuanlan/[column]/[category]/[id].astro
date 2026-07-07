@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import { parsePostSlug } from '../../../../utils/slug.js';
+import { getColumnSlug, getColumnBySlug } from '../../../../utils/columns.js';
+import PostLayout from '../../../../layouts/PostLayout.astro';
+import { getPostUrlPath } from '../../../../utils/slug.js';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => {
+    const { categorySlug, numberSlug } = parsePostSlug(post.slug);
+    const columnSlug = getColumnSlug(post.data.column);
+    return {
+      params: { column: columnSlug, category: categorySlug, id: numberSlug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+
+const { categorySlug, numberSlug } = parsePostSlug(post.slug);
+const columnSlug = getColumnSlug(post.data.column);
+const allPosts = await getCollection('posts');
+const sortedPosts = allPosts.sort((a, b) => {
+  const da = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const db = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+  return db - da;
+});
+
+const currentIndex = sortedPosts.findIndex((p) => p.slug === post.slug);
+const prevPost = sortedPosts[currentIndex + 1] || null;
+const nextPost = sortedPosts[currentIndex - 1] || null;
+
+const prev = prevPost ? { slug: getPostUrlPath(prevPost).slice(1, -1), title: prevPost.data.title } : undefined;
+const next = nextPost ? { slug: getPostUrlPath(nextPost).slice(1, -1), title: nextPost.data.title } : undefined;
+---
+
+<PostLayout
+  title={post.data.title}
+  description={post.data.description}
+  category={post.data.category}
+  categorySlug={categorySlug}
+  columnSlug={columnSlug}
+  pubDate={post.data.pubDate}
+  keywords={post.data.keywords}
+  headings={headings}
+  prev={prev}
+  next={next}
+>
+  <Content />
+</PostLayout>

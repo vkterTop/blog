@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import MobileMenu from '../../components/MobileMenu.astro';
+import Footer from '../../components/Footer.astro';
+import ScrollToTop from '../../components/ScrollToTop.astro';
+import { columns, getColumnName } from '../../utils/columns.js';
+
+const allPosts = await getCollection('posts');
+
+const columnEntries = columns.map((col) => {
+  const posts = allPosts.filter((p) => (p.data.column || '吃瓜盟主') === col.name);
+  const count = posts.length;
+  const categories = [...new Set(posts.map((p) => p.data.category))].slice(0, 4);
+  return { ...col, count, categories };
+});
+---
+
+<BaseLayout title="专栏" description="皇汉学堂专栏列表。">
+  <Navbar slot="header" />
+  <MobileMenu slot="header" />
+
+  <main slot="main" class="flex-1">
+    <div class="mx-auto max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
+      <header class="mb-10 border-b border-paper-dark pb-6">
+        <h1 class="font-serif text-3xl md:text-4xl font-semibold text-ink">专栏</h1>
+        <p class="mt-2 text-ink-soft">按专栏浏览文章，当前共 {columnEntries.length} 个专栏。</p>
+      </header>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {columnEntries.map((col) => (
+          <a
+            href={`/zhuanlan/${col.slug}/`}
+            class="group relative block p-6 md:p-8 bg-paper-muted border border-paper-dark transition-all duration-300 hover:-translate-y-1 hover:bg-paper-accent hover:border-paper-dark/80"
+          >
+            <div class="flex flex-col gap-3">
+              <h2 class="font-serif text-2xl md:text-3xl font-semibold text-ink group-hover:text-vermilion transition-colors">
+                {col.name}
+              </h2>
+              <p class="text-sm text-ink-soft">{col.count} 篇文章</p>
+              {col.description && (
+                <p class="text-sm text-ink-muted line-clamp-2">{col.description}</p>
+              )}
+              {col.categories.length > 0 && (
+                <p class="text-xs text-ink-muted">含：{col.categories.join(' · ')}</p>
+              )}
+            </div>
+            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-2xl text-ink-muted group-hover:text-vermilion transition-colors">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <Footer slot="footer" />
+  <ScrollToTop />
+</BaseLayout>

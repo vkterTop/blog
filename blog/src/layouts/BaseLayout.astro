@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  canonicalUrl?: string;
+}
+
+const { title, description, image, type = 'website', canonicalUrl } = Astro.props;
+const siteName = '皇汉学堂';
+const pageTitle = title ? `${title} - ${siteName}` : siteName;
+const pageDescription = description || '素笺墨韵，中文历史与文化长文。';
+const pageImage = image;
+---
+
+<!doctype html>
+<html lang="zh-CN" class="antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content="了了子" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title={siteName} href={new URL('/rss.xml', Astro.site || 'https://huanghanxuetang.example.com').toString()} />
+    
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={siteName} />
+    {pageImage && <meta property="og:image" content={pageImage} />}
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    
+    <slot name="head" />
+  </head>
+  <body class="bg-paper text-ink font-body transition-colors duration-200">
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && systemDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+    
+    <div class="flex min-h-[100dvh] flex-col">
+      <slot name="header" />
+      <slot name="main" />
+      <slot name="footer" />
+    </div>
+  </body>
+</html>

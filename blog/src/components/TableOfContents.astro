@@ -1,0 +1,34 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+
+{toc.length > 0 && (
+  <nav aria-label="目录" class="hidden lg:block sticky top-24 max-h-[calc(100dvh-8rem)] overflow-y-auto">
+    <p class="font-serif text-sm font-semibold text-ink-muted mb-4 tracking-wide">目录</p>
+    <ul class="space-y-2 border-l border-paper-dark pl-3">
+      {toc.map((h) => (
+        <li>
+          <a
+            href={`#${h.slug}`}
+            class={`block text-sm leading-snug transition-colors ${
+              h.depth === 3 ? 'pl-3 text-ink-muted hover:text-ink' : 'text-ink-soft hover:text-vermilion'
+            }`}
+          >
+            {h.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}

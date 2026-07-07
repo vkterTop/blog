@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+import Footer from '../components/Footer.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+import SearchBox from '../components/SearchBox.astro';
+---
+
+<BaseLayout title="搜索" description="搜索文章标题与关键词。">
+  <Navbar slot="header" />
+  <MobileMenu slot="header" />
+
+  <main slot="main" class="flex-1">
+    <div class="mx-auto max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
+      <header class="mb-10 border-b border-paper-dark pb-6">
+        <h1 class="font-serif text-3xl md:text-4xl font-semibold text-ink">搜索</h1>
+        <p class="mt-2 text-ink-soft">输入关键词，查找相关文章。</p>
+      </header>
+
+      <div class="mb-10">
+        <SearchBox />
+      </div>
+
+      <div id="search-results" class="space-y-5">
+        <p class="text-ink-muted">正在加载搜索索引...</p>
+      </div>
+    </div>
+  </main>
+
+  <Footer slot="footer" />
+  <ScrollToTop />
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get('q') || '';
+    const input = document.getElementById('search-input');
+    if (input) input.value = query;
+
+    const resultsEl = document.getElementById('search-results');
+    if (!resultsEl) return;
+
+    function renderResult(item) {
+      const numberSlug = item.slug.split('-').pop();
+      const url = `/zhuanlan/${item.columnSlug}/${item.categorySlug}/${numberSlug}/`;
+      return `
+        <a href="${url}" class="block p-5 bg-paper-muted border border-paper-dark hover:border-paper-dark/80 transition-colors">
+          <div class="flex items-center gap-3 mb-2 text-sm">
+            <span class="text-vermilion font-medium">${item.category}</span>
+            <span class="text-ink-muted">${new Date(item.pubDate).toLocaleDateString('zh-CN')}</span>
+          </div>
+          <h3 class="font-serif text-lg font-semibold text-ink mb-2">${item.title}</h3>
+          <p class="text-sm text-ink-soft line-clamp-2">${item.description}</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            ${item.keywords.slice(0, 3).map(k => `<span class="px-2 py-0.5 text-xs border border-paper-dark rounded-sm text-ink-muted">${k}</span>`).join('')}
+          </div>
+        </a>
+      `;
+    }
+
+    async function load() {
+      try {
+        const res = await fetch('/search.json');
+        if (!res.ok) throw new Error('索引加载失败');
+        const data = await res.json();
+
+        if (!query) {
+          resultsEl.innerHTML = '<p class="text-ink-muted">请输入关键词开始搜索。</p>';
+          return;
+        }
+
+        const q = query.toLowerCase().trim();
+        const matches = data.filter((item) => {
+          const haystack = (item.title + ' ' + item.category + ' ' + item.keywords.join(' ') + ' ' + item.description).toLowerCase();
+          return haystack.includes(q);
+        });
+
+        if (matches.length === 0) {
+          resultsEl.innerHTML = '<p class="text-ink-muted">未找到相关文章。</p>';
+          return;
+        }
+
+        resultsEl.innerHTML = `<p class="text-ink-soft mb-4">找到 ${matches.length} 篇相关文章：</p>` + matches.map(renderResult).join('');
+      } catch (e) {
+        resultsEl.innerHTML = '<p class="text-ink-muted">搜索索引加载失败，请稍后重试。</p>';
+      }
+    }
+
+    load();
+  })();
+</script>

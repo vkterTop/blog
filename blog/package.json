@@ -1,0 +1,20 @@
+{
+  "name": "blog",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "content:import": "node scripts/import-content.js",
+    "content:clean": "node -e \"const fs=require('fs'); const p='src/content/posts'; if(fs.existsSync(p)) fs.rmSync(p,{recursive:true,force:true}); fs.mkdirSync(p,{recursive:true});\""
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^4.16.18",
+    "tailwindcss": "^3.4.17"
+  }
+}

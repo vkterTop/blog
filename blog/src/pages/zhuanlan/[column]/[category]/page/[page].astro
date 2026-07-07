@@ -1,0 +1,96 @@
+---
+import { getCollection } from 'astro:content';
+import { categorySlugs, getCategoryLabel } from '../../../../../utils/pinyin.js';
+import { parsePostSlug } from '../../../../../utils/slug.js';
+import { getColumnBySlug, getColumnSlug } from '../../../../../utils/columns.js';
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import Navbar from '../../../../../components/Navbar.astro';
+import MobileMenu from '../../../../../components/MobileMenu.astro';
+import Footer from '../../../../../components/Footer.astro';
+import ScrollToTop from '../../../../../components/ScrollToTop.astro';
+import PostCard from '../../../../../components/PostCard.astro';
+import Pagination from '../../../../../components/Pagination.astro';
+import { getPostUrlPath, getCategoryUrlPath } from '../../../../../utils/slug.js';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts');
+  const pageSize = 20;
+  const paths = [];
+  const { columns } = await import('../../../../../utils/columns.js');
+
+  for (const column of columns) {
+    for (const category of Object.values(categorySlugs)) {
+      const categoryPosts = allPosts
+        .filter((p) => getColumnSlug(p.data.column) === column.slug)
+        .filter((p) => parsePostSlug(p.slug).categorySlug === category)
+        .sort((a, b) => {
+          const da = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+          const db = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+          return db - da;
+        });
+
+      const totalPages = Math.ceil(categoryPosts.length / pageSize);
+      for (let i = 2; i <= totalPages; i++) {
+        paths.push({
+          params: { column: column.slug, category, page: String(i) },
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { column, category, page } = Astro.params;
+const columnName = getColumnBySlug(column).name;
+const categoryName = getCategoryLabel(category);
+const allPosts = await getCollection('posts');
+const categoryPosts = allPosts
+  .filter((p) => getColumnSlug(p.data.column) === column)
+  .filter((p) => parsePostSlug(p.slug).categorySlug === category)
+  .sort((a, b) => {
+    const da = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+    const db = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+    return db - da;
+  });
+
+const pageSize = 20;
+const currentPage = Number(page);
+const totalPages = Math.max(1, Math.ceil(categoryPosts.length / pageSize));
+const start = (currentPage - 1) * pageSize;
+const pagePosts = categoryPosts.slice(start, start + pageSize);
+---
+
+<BaseLayout title={`${categoryName} - 第 ${currentPage} 页 - ${columnName}`} description={`${columnName} 专栏 ${categoryName} 分类，第 ${currentPage} 页。`}>
+  <Navbar slot="header" />
+  <MobileMenu slot="header" />
+
+  <main slot="main" class="flex-1">
+    <div class="mx-auto max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
+      <header class="mb-10 border-b border-paper-dark pb-6">
+        <div class="text-sm text-ink-muted mb-2">
+          <a href="/zhuanlan/" class="hover:text-vermilion">专栏</a>
+          <span class="mx-2">/</span>
+          <a href={`/zhuanlan/${column}/`} class="hover:text-vermilion">{columnName}</a>
+          <span class="mx-2">/</span>
+          <a href={getCategoryUrlPath(category, column)} class="hover:text-vermilion">{categoryName}</a>
+          <span class="mx-2">/</span>
+          <span class="text-ink-soft">第 {currentPage} 页</span>
+        </div>
+        <h1 class="font-serif text-3xl md:text-4xl font-semibold text-ink">{categoryName}</h1>
+        <p class="mt-2 text-ink-soft">共 {categoryPosts.length} 篇文章，当前第 {currentPage} 页。</p>
+      </header>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {pagePosts.map((post) => (
+          <PostCard post={{ ...post, slug: getPostUrlPath(post).slice(1, -1) }} />
+        ))}
+      </div>
+
+      <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl={getCategoryUrlPath(category, column)} />
+    </div>
+  </main>
+
+  <Footer slot="footer" />
+  <ScrollToTop />
+</BaseLayout>

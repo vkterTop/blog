@@ -1,0 +1,218 @@
+- generic [ref=f4e2]:
+  - banner [ref=f4e3]:
+    - navigation [ref=f4e4]:
+      - link "皇汉 学堂" [ref=f4e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f4e6]: 皇汉
+        - generic [ref=f4e7]: 学堂
+      - generic [ref=f4e8]:
+        - link "首页" [ref=f4e9] [cursor=pointer]:
+          - /url: /
+        - link "专栏" [ref=f4e10] [cursor=pointer]:
+          - /url: /zhuanlan/
+        - link "归档" [ref=f4e11] [cursor=pointer]:
+          - /url: /archive/
+        - link "搜索" [ref=f4e12] [cursor=pointer]:
+          - /url: /search/
+      - button "切换深色模式" [ref=f4e14] [cursor=pointer]:
+        - img [ref=f4e15]
+  - main [ref=f4e17]:
+    - generic [ref=f4e18]:
+      - generic [ref=f4e19]:
+        - generic [ref=f4e20]:
+          - link "专栏" [ref=f4e21] [cursor=pointer]:
+            - /url: /zhuanlan/
+          - text: / 吃瓜盟主
+        - heading "吃瓜盟主" [level=1] [ref=f4e22]
+        - paragraph [ref=f4e23]: 吃瓜盟主直播与长文转录，兼论历史、文化、时事。
+        - paragraph [ref=f4e24]: 共 2057 篇文章，12 个分类。
+      - generic [ref=f4e25]:
+        - heading "分类" [level=2] [ref=f4e26]
+        - generic [ref=f4e27]:
+          - link "方法论与思维 225 篇文章 方法论与思维 · 黑格尔误判中国历史为王朝循环论批判 →" [ref=f4e28] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/fangfa-yu-siwei/
+            - generic [ref=f4e29]:
+              - heading "方法论与思维" [level=3] [ref=f4e30]
+              - paragraph [ref=f4e31]: 225 篇文章
+              - paragraph [ref=f4e32]: 方法论与思维 · 黑格尔误判中国历史为王朝循环论批判
+            - generic [ref=f4e33]: →
+          - link "服饰与汉服 114 篇文章 服饰与汉服 · 金钱鼠尾辫的起源与剃发易服演变 →" [ref=f4e34] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/fushi-yu-hanfu/
+            - generic [ref=f4e35]:
+              - heading "服饰与汉服" [level=3] [ref=f4e36]
+              - paragraph [ref=f4e37]: 114 篇文章
+              - paragraph [ref=f4e38]: 服饰与汉服 · 金钱鼠尾辫的起源与剃发易服演变
+            - generic [ref=f4e39]: →
+          - link "疆域与治理 73 篇文章 疆域与治理 · 铭记历史真相与认清敌我之分 →" [ref=f4e40] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/jiangyu-yu-zhili/
+            - generic [ref=f4e41]:
+              - heading "疆域与治理" [level=3] [ref=f4e42]
+              - paragraph [ref=f4e43]: 73 篇文章
+              - paragraph [ref=f4e44]: 疆域与治理 · 铭记历史真相与认清敌我之分
+            - generic [ref=f4e45]: →
+          - link "军事与战争 74 篇文章 军事与战争 · 高级知识分子待不下去？看国防精英与公知之别 · 高级知识分子待不下去 →" [ref=f4e46] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/junshi-yu-zhanzheng/
+            - generic [ref=f4e47]:
+              - heading "军事与战争" [level=3] [ref=f4e48]
+              - paragraph [ref=f4e49]: 74 篇文章
+              - paragraph [ref=f4e50]: 军事与战争 · 高级知识分子待不下去？看国防精英与公知之别 · 高级知识分子待不下去
+            - generic [ref=f4e51]: →
+          - link "科技与生产 139 篇文章 科技与生产 · 驳斥死者为大的谎言：中国古代外科与传染病成就 · 驳斥死者为大的谎言 →" [ref=f4e52] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/keji-yu-shengchan/
+            - generic [ref=f4e53]:
+              - heading "科技与生产" [level=3] [ref=f4e54]
+              - paragraph [ref=f4e55]: 139 篇文章
+              - paragraph [ref=f4e56]: 科技与生产 · 驳斥死者为大的谎言：中国古代外科与传染病成就 · 驳斥死者为大的谎言
+            - generic [ref=f4e57]: →
+          - link "明朝历史 148 篇文章 明朝历史 · 驳历史虚无主义：明王朝的本来面目与当代镜鉴 · 驳历史虚无主义 →" [ref=f4e58] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/mingchao-lishi/
+            - generic [ref=f4e59]:
+              - heading "明朝历史" [level=3] [ref=f4e60]
+              - paragraph [ref=f4e61]: 148 篇文章
+              - paragraph [ref=f4e62]: 明朝历史 · 驳历史虚无主义：明王朝的本来面目与当代镜鉴 · 驳历史虚无主义
+            - generic [ref=f4e63]: →
+          - link "清朝历史 317 篇文章 清朝历史 · 黄汉叙事、精神殖民与历史温情 · 黄汉叙事 →" [ref=f4e64] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/qingchao-lishi/
+            - generic [ref=f4e65]:
+              - heading "清朝历史" [level=3] [ref=f4e66]
+              - paragraph [ref=f4e67]: 317 篇文章
+              - paragraph [ref=f4e68]: 清朝历史 · 黄汉叙事、精神殖民与历史温情 · 黄汉叙事
+            - generic [ref=f4e69]: →
+          - link "日本与侵华 78 篇文章 日本与侵华 · 逆境中的自证 →" [ref=f4e70] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/riben-yu-qinhua/
+            - generic [ref=f4e71]:
+              - heading "日本与侵华" [level=3] [ref=f4e72]
+              - paragraph [ref=f4e73]: 78 篇文章
+              - paragraph [ref=f4e74]: 日本与侵华 · 逆境中的自证
+            - generic [ref=f4e75]: →
+          - link "思想与文化 371 篇文章 思想与文化 · 黄汉叙事、精神殖民与历史温情 · 黄汉叙事 →" [ref=f4e76] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/sixiang-yu-wenhua/
+            - generic [ref=f4e77]:
+              - heading "思想与文化" [level=3] [ref=f4e78]
+              - paragraph [ref=f4e79]: 371 篇文章
+              - paragraph [ref=f4e80]: 思想与文化 · 黄汉叙事、精神殖民与历史温情 · 黄汉叙事
+            - generic [ref=f4e81]: →
+          - link "西方与伪史 184 篇文章 西方与伪史 · 黄汉词源流变与西方舆论战反制考 →" [ref=f4e82] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/xifang-yu-weishi/
+            - generic [ref=f4e83]:
+              - heading "西方与伪史" [level=3] [ref=f4e84]
+              - paragraph [ref=f4e85]: 184 篇文章
+              - paragraph [ref=f4e86]: 西方与伪史 · 黄汉词源流变与西方舆论战反制考
+            - generic [ref=f4e87]: →
+          - link "族群与认同 282 篇文章 族群与认同 · 黑粉的“赛博审判”与十万粉丝之路 · 黑粉的 →" [ref=f4e88] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/zuqun-yu-rentong/
+            - generic [ref=f4e89]:
+              - heading "族群与认同" [level=3] [ref=f4e90]
+              - paragraph [ref=f4e91]: 282 篇文章
+              - paragraph [ref=f4e92]: 族群与认同 · 黑粉的“赛博审判”与十万粉丝之路 · 黑粉的
+            - generic [ref=f4e93]: →
+          - link "其他综合 52 篇文章 其他综合 · 隔岸观火因堤固，只盼彼岸有常人 · 隔岸观火因堤固 →" [ref=f4e94] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/qita-zonghe/
+            - generic [ref=f4e95]:
+              - heading "其他综合" [level=3] [ref=f4e96]
+              - paragraph [ref=f4e97]: 52 篇文章
+              - paragraph [ref=f4e98]: 其他综合 · 隔岸观火因堤固，只盼彼岸有常人 · 隔岸观火因堤固
+            - generic [ref=f4e99]: →
+      - generic [ref=f4e100]:
+        - heading "最新文章" [level=2] [ref=f4e102]
+        - generic [ref=f4e103]:
+          - link "西方与伪史 2026-07-07 黄汉词源流变与西方舆论战反制考 这件事要溯源到上世纪80年代晚期。先说黄汉，其源头涉及东汉时期。当时中国人开始将汉王朝称之为“皇汉”，皇即光荣、伟大之意。黄汉就是大汉对自己的一种荣耀称谓。从东汉开始称黄汉，之后还有皇宋、皇明这样的称谓，一直都有。到了革命期间，包括鲁迅、秋瑾等人都会自称黄汉，这是对自我身份的一种光荣认定，其本质是民族独立解放与复兴。在…… 西方与伪史 黄汉词源流变与西方舆论战反制考" [ref=f4e104] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/xifang-yu-weishi/183/
+            - generic [ref=f4e105]:
+              - generic [ref=f4e106]:
+                - generic [ref=f4e107]: 西方与伪史
+                - generic [ref=f4e108]: 2026-07-07
+              - heading "黄汉词源流变与西方舆论战反制考" [level=3] [ref=f4e109]
+              - paragraph [ref=f4e110]: 这件事要溯源到上世纪80年代晚期。先说黄汉，其源头涉及东汉时期。当时中国人开始将汉王朝称之为“皇汉”，皇即光荣、伟大之意。黄汉就是大汉对自己的一种荣耀称谓。从东汉开始称黄汉，之后还有皇宋、皇明这样的称谓，一直都有。到了革命期间，包括鲁迅、秋瑾等人都会自称黄汉，这是对自我身份的一种光荣认定，其本质是民族独立解放与复兴。在……
+              - generic [ref=f4e111]:
+                - generic [ref=f4e112]: 西方与伪史
+                - generic [ref=f4e113]: 黄汉词源流变与西方舆论战反制考
+          - link "西方与伪史 2026-07-07 黑格尔误判中国历史为王朝循环论批判 黑格尔在其《历史哲学》中提出“中国无历史”的论断，认为中国的历史不过是王朝不断兴起又衰落的循环。此观点的形成，主要源于三方面缺陷：其一，他当年掌握的史料并不完整；其二，他对历史本身欠缺足够的分析能力；其三，他进行历史论断时，完全以西方历史为范本进行解析。在他的历史观中，以西方为标准范式来审视中国，且对中国的了解一知半解…… 西方与伪史 黑格尔误判中国历史为王朝循环论批判" [ref=f4e114] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/xifang-yu-weishi/184/
+            - generic [ref=f4e115]:
+              - generic [ref=f4e116]:
+                - generic [ref=f4e117]: 西方与伪史
+                - generic [ref=f4e118]: 2026-07-07
+              - heading "黑格尔误判中国历史为王朝循环论批判" [level=3] [ref=f4e119]
+              - paragraph [ref=f4e120]: 黑格尔在其《历史哲学》中提出“中国无历史”的论断，认为中国的历史不过是王朝不断兴起又衰落的循环。此观点的形成，主要源于三方面缺陷：其一，他当年掌握的史料并不完整；其二，他对历史本身欠缺足够的分析能力；其三，他进行历史论断时，完全以西方历史为范本进行解析。在他的历史观中，以西方为标准范式来审视中国，且对中国的了解一知半解……
+              - generic [ref=f4e121]:
+                - generic [ref=f4e122]: 西方与伪史
+                - generic [ref=f4e123]: 黑格尔误判中国历史为王朝循环论批判
+          - link "西方与伪史 2026-07-07 驳斥“帝王皆恶”论与伪史叙事 如果从来不看任何历史书籍，就不该大放厥词。首先，皇帝这一角色的诞生历史并没有三千年那么长。其次，华夏大地上的君王如果都是邪恶的，我们是如何在清代之前漫长的数千年间，始终处于世界翘楚地位的？如果说自古以来的君王都是邪恶的，那周边地区为何长期处于蛮荒状态？难道是因为他们缺少一位邪恶的君王来拯救吗？ 什么是正义与邪恶，好与坏…… 西方与伪史 驳斥“帝王皆恶”论与伪史叙事 驳斥" [ref=f4e124] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/xifang-yu-weishi/179/
+            - generic [ref=f4e125]:
+              - generic [ref=f4e126]:
+                - generic [ref=f4e127]: 西方与伪史
+                - generic [ref=f4e128]: 2026-07-07
+              - heading "驳斥“帝王皆恶”论与伪史叙事" [level=3] [ref=f4e129]
+              - paragraph [ref=f4e130]: 如果从来不看任何历史书籍，就不该大放厥词。首先，皇帝这一角色的诞生历史并没有三千年那么长。其次，华夏大地上的君王如果都是邪恶的，我们是如何在清代之前漫长的数千年间，始终处于世界翘楚地位的？如果说自古以来的君王都是邪恶的，那周边地区为何长期处于蛮荒状态？难道是因为他们缺少一位邪恶的君王来拯救吗？ 什么是正义与邪恶，好与坏……
+              - generic [ref=f4e131]:
+                - generic [ref=f4e132]: 西方与伪史
+                - generic [ref=f4e133]: 驳斥“帝王皆恶”论与伪史叙事
+                - generic [ref=f4e134]: 驳斥
+          - link "西方与伪史 2026-07-07 驳斥死者为大的谎言：中国古代外科与传染病成就 关于中国古典时期的外科，曾在公知盛行的那些年里，流行过一种说法：许多中国公知喜欢宣称，中国古人认为死者为大，因此不会去解剖，所以近现代医学是由西方人开创的。这当然是一个赤裸裸的谎言，而且是经过刻意节选的谎言。要知道，中国是有法医书籍的，宋慈的《洗冤集录》就是法医学著作的经典。既然有法医学，又怎么可能不进行解剖？不解剖，…… 西方与伪史 驳斥死者为大的谎言：中国古代外科与传染病成就 驳斥死者为大的谎言" [ref=f4e135] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/xifang-yu-weishi/180/
+            - generic [ref=f4e136]:
+              - generic [ref=f4e137]:
+                - generic [ref=f4e138]: 西方与伪史
+                - generic [ref=f4e139]: 2026-07-07
+              - heading "驳斥死者为大的谎言：中国古代外科与传染病成就" [level=3] [ref=f4e140]
+              - paragraph [ref=f4e141]: 关于中国古典时期的外科，曾在公知盛行的那些年里，流行过一种说法：许多中国公知喜欢宣称，中国古人认为死者为大，因此不会去解剖，所以近现代医学是由西方人开创的。这当然是一个赤裸裸的谎言，而且是经过刻意节选的谎言。要知道，中国是有法医书籍的，宋慈的《洗冤集录》就是法医学著作的经典。既然有法医学，又怎么可能不进行解剖？不解剖，……
+              - generic [ref=f4e142]:
+                - generic [ref=f4e143]: 西方与伪史
+                - generic [ref=f4e144]: 驳斥死者为大的谎言：中国古代外科与传染病成就
+                - generic [ref=f4e145]: 驳斥死者为大的谎言
+          - link "西方与伪史 2026-07-07 驳斥移民大势所趋论：历史教训与当下警示 有人问，我们这样发展下去，是否终将像欧美日韩一样接纳来自非洲、印度和中东的移民？我不喜欢这种提问，因为它本身就是一种预言术。预言术是一种社会管理方法，尽管原始，却确实有效。它相当于发布一个计划书，即便荒唐，一旦以预言的形式公布，便会有人不由自主地按配套方案行事。例如，当“接纳移民是大势所趋”被反复宣扬，你便开设了移民俱…… 西方与伪史 驳斥移民大势所趋论：历史教训与当下警示 驳斥移民大势所趋论" [ref=f4e146] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/xifang-yu-weishi/181/
+            - generic [ref=f4e147]:
+              - generic [ref=f4e148]:
+                - generic [ref=f4e149]: 西方与伪史
+                - generic [ref=f4e150]: 2026-07-07
+              - heading "驳斥移民大势所趋论：历史教训与当下警示" [level=3] [ref=f4e151]
+              - paragraph [ref=f4e152]: 有人问，我们这样发展下去，是否终将像欧美日韩一样接纳来自非洲、印度和中东的移民？我不喜欢这种提问，因为它本身就是一种预言术。预言术是一种社会管理方法，尽管原始，却确实有效。它相当于发布一个计划书，即便荒唐，一旦以预言的形式公布，便会有人不由自主地按配套方案行事。例如，当“接纳移民是大势所趋”被反复宣扬，你便开设了移民俱……
+              - generic [ref=f4e153]:
+                - generic [ref=f4e154]: 西方与伪史
+                - generic [ref=f4e155]: 驳斥移民大势所趋论：历史教训与当下警示
+                - generic [ref=f4e156]: 驳斥移民大势所趋论
+          - link "西方与伪史 2026-07-07 鸦片种植与文物劫掠的真相反思 有些人因看了太多西方叙事的故事，产生了种种幻想。就像看到某些地方发达、某些群体先进，便认为他们天然具备更大的善意。这种心态，在一些小说里被称为“降临派”——觉得对方发达、先进，便应当听从他们，引入他者的思路。一部分中国人至今仍怀有这种幻想，一见到洋人便觉得他们先进，是文明之源，自幼耳熟能详的故事让他们感到那里的人非凡无…… 西方与伪史 鸦片种植与文物劫掠的真相反思" [ref=f4e157] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/xifang-yu-weishi/182/
+            - generic [ref=f4e158]:
+              - generic [ref=f4e159]:
+                - generic [ref=f4e160]: 西方与伪史
+                - generic [ref=f4e161]: 2026-07-07
+              - heading "鸦片种植与文物劫掠的真相反思" [level=3] [ref=f4e162]
+              - paragraph [ref=f4e163]: 有些人因看了太多西方叙事的故事，产生了种种幻想。就像看到某些地方发达、某些群体先进，便认为他们天然具备更大的善意。这种心态，在一些小说里被称为“降临派”——觉得对方发达、先进，便应当听从他们，引入他者的思路。一部分中国人至今仍怀有这种幻想，一见到洋人便觉得他们先进，是文明之源，自幼耳熟能详的故事让他们感到那里的人非凡无……
+              - generic [ref=f4e164]:
+                - generic [ref=f4e165]: 西方与伪史
+                - generic [ref=f4e166]: 鸦片种植与文物劫掠的真相反思
+          - link "西方与伪史 2026-07-07 重新审视中国衰落的时间节点：从1840到1644 如果将中国衰落的起点界定为1840年，就等同于承认满清是一个大体合格的时代，至少其底线必须是合格的，才能推导出1840年后我们才急转直下的结论。然而，满清统治的两百多年合格吗？它是在向上发展吗？如果没有进步，又是否保持了原有水平？所谓合格，不亏到底即可称之，这个标准并不高。而这正是将衰落节点定于1840年的关键问题所在…… 西方与伪史 重新审视中国衰落的时间节点：从1840到1644 重新审视中国衰落的时间节点" [ref=f4e167] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/xifang-yu-weishi/176/
+            - generic [ref=f4e168]:
+              - generic [ref=f4e169]:
+                - generic [ref=f4e170]: 西方与伪史
+                - generic [ref=f4e171]: 2026-07-07
+              - heading "重新审视中国衰落的时间节点：从1840到1644" [level=3] [ref=f4e172]
+              - paragraph [ref=f4e173]: 如果将中国衰落的起点界定为1840年，就等同于承认满清是一个大体合格的时代，至少其底线必须是合格的，才能推导出1840年后我们才急转直下的结论。然而，满清统治的两百多年合格吗？它是在向上发展吗？如果没有进步，又是否保持了原有水平？所谓合格，不亏到底即可称之，这个标准并不高。而这正是将衰落节点定于1840年的关键问题所在……
+              - generic [ref=f4e174]:
+                - generic [ref=f4e175]: 西方与伪史
+                - generic [ref=f4e176]: 重新审视中国衰落的时间节点：从1840到1644
+                - generic [ref=f4e177]: 重新审视中国衰落的时间节点
+          - link "西方与伪史 2026-07-07 预制菜发展的中外源流与批评背后的动机辨析 预制菜这件事，至少在未来的城市化进程阶段当中，应该是某种趋向。不为了什么，就是因为我实在难以从容做饭，甚至很希望每一顿都能把搭配备得足足的，如果预制菜还能做得特别好，我真是感恩戴德。但是，在转型期当中，漏洞肯定是一堆一堆的。趋利、被害——当你说这个东西可以、这个东西可行，并宣传这是未来时，瞬间就有一大帮奸商冲上来，为了…… 西方与伪史 预制菜发展的中外源流与批评背后的动机辨析" [ref=f4e178] [cursor=pointer]:
+            - /url: /zhuanlan/chigua-mengzhu/xifang-yu-weishi/177/
+            - generic [ref=f4e179]:
+              - generic [ref=f4e180]:
+                - generic [ref=f4e181]: 西方与伪史
+                - generic [ref=f4e182]: 2026-07-07
+              - heading "预制菜发展的中外源流与批评背后的动机辨析" [level=3] [ref=f4e183]
+              - paragraph [ref=f4e184]: 预制菜这件事，至少在未来的城市化进程阶段当中，应该是某种趋向。不为了什么，就是因为我实在难以从容做饭，甚至很希望每一顿都能把搭配备得足足的，如果预制菜还能做得特别好，我真是感恩戴德。但是，在转型期当中，漏洞肯定是一堆一堆的。趋利、被害——当你说这个东西可以、这个东西可行，并宣传这是未来时，瞬间就有一大帮奸商冲上来，为了……
+              - generic [ref=f4e185]:
+                - generic [ref=f4e186]: 西方与伪史
+                - generic [ref=f4e187]: 预制菜发展的中外源流与批评背后的动机辨析
+  - contentinfo [ref=f4e188]:
+    - generic [ref=f4e190]:
+      - generic [ref=f4e191]:
+        - paragraph [ref=f4e192]: 皇汉学堂
+        - paragraph [ref=f4e193]: 素笺墨韵 · 中文历史与文化长文
+      - generic [ref=f4e194]:
+        - paragraph [ref=f4e195]: © 2026 了了子 · 版权所有
+        - paragraph [ref=f4e196]: 本站由 Astro 静态构建

@@ -1,0 +1,39 @@
+- generic [ref=f3e2]:
+  - banner [ref=f3e3]:
+    - navigation [ref=f3e4]:
+      - link "皇汉 学堂" [ref=f3e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f3e6]: 皇汉
+        - generic [ref=f3e7]: 学堂
+      - generic [ref=f3e8]:
+        - link "首页" [ref=f3e9] [cursor=pointer]:
+          - /url: /
+        - link "专栏" [ref=f3e10] [cursor=pointer]:
+          - /url: /zhuanlan/
+        - link "归档" [ref=f3e11] [cursor=pointer]:
+          - /url: /archive/
+        - link "搜索" [ref=f3e12] [cursor=pointer]:
+          - /url: /search/
+      - button "切换深色模式" [ref=f3e14] [cursor=pointer]:
+        - img [ref=f3e15]
+  - main [ref=f3e17]:
+    - generic [ref=f3e18]:
+      - generic [ref=f3e19]:
+        - heading "专栏" [level=1] [ref=f3e20]
+        - paragraph [ref=f3e21]: 按专栏浏览文章，当前共 1 个专栏。
+      - link "吃瓜盟主 2057 篇文章 吃瓜盟主直播与长文转录，兼论历史、文化、时事。 含：方法论与思维 · 服饰与汉服 · 疆域与治理 · 军事与战争 →" [ref=f3e23] [cursor=pointer]:
+        - /url: /zhuanlan/chigua-mengzhu/
+        - generic [ref=f3e24]:
+          - heading "吃瓜盟主" [level=2] [ref=f3e25]
+          - paragraph [ref=f3e26]: 2057 篇文章
+          - paragraph [ref=f3e27]: 吃瓜盟主直播与长文转录，兼论历史、文化、时事。
+          - paragraph [ref=f3e28]: 含：方法论与思维 · 服饰与汉服 · 疆域与治理 · 军事与战争
+        - generic [ref=f3e29]: →
+  - contentinfo [ref=f3e30]:
+    - generic [ref=f3e32]:
+      - generic [ref=f3e33]:
+        - paragraph [ref=f3e34]: 皇汉学堂
+        - paragraph [ref=f3e35]: 素笺墨韵 · 中文历史与文化长文
+      - generic [ref=f3e36]:
+        - paragraph [ref=f3e37]: © 2026 了了子 · 版权所有
+        - paragraph [ref=f3e38]: 本站由 Astro 静态构建

@@ -1,0 +1,32 @@
+<button
+  id="scroll-to-top"
+  type="button"
+  aria-label="返回顶部"
+  class="fixed bottom-6 right-6 z-40 hidden p-3 bg-vermilion text-paper shadow-lg hover:bg-vermilion-hover active:scale-[0.98] transition-all"
+>
+  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 15l-6-6-6 6" />
+  </svg>
+</button>
+
+<script is:inline>
+  (function () {
+    const btn = document.getElementById('scroll-to-top');
+    if (!btn) return;
+
+    function toggle() {
+      if (window.scrollY > 300) {
+        btn.classList.remove('hidden');
+      } else {
+        btn.classList.add('hidden');
+      }
+    }
+
+    window.addEventListener('scroll', toggle, { passive: true });
+    toggle();
+
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>

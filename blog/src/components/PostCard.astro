@@ -1,0 +1,50 @@
+---
+import { format } from '../utils/date.js';
+
+interface Props {
+  post: {
+    slug: string;
+    data: {
+      title: string;
+      category: string;
+      description?: string;
+      pubDate?: Date;
+      keywords?: string[];
+    };
+  };
+}
+
+const { post } = Astro.props;
+const { title, category, description, pubDate, keywords = [] } = post.data;
+const dateStr = pubDate ? format(pubDate) : '';
+---
+
+<a
+  href={`/${post.slug}/`}
+  class="group relative block bg-paper border border-paper-dark p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-paper-dark/80"
+>
+  <span class="absolute left-0 top-0 bottom-0 w-[3px] bg-vermilion scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" aria-hidden="true"></span>
+  <div class="flex flex-col gap-3">
+    <div class="flex items-center justify-between gap-3">
+      <span class="text-xs md:text-sm text-vermilion font-medium">{category}</span>
+      {dateStr && <span class="text-xs text-ink-muted">{dateStr}</span>}
+    </div>
+    <h3 class="font-serif text-lg md:text-xl font-semibold leading-snug text-ink group-hover:text-vermilion transition-colors line-clamp-2">
+      {title}
+    </h3>
+    {description && (
+      <p class="text-sm md:text-base text-ink-soft line-clamp-3 leading-relaxed">
+        {description}
+      </p>
+    )}
+    {keywords.length > 0 && (
+      <div class="flex flex-wrap gap-2 mt-1">
+        {keywords.slice(0, 3).map((k) => (
+          <span class="px-2 py-0.5 text-xs border border-paper-dark rounded-sm text-ink-soft bg-paper-muted">
+            {k}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
+</a>
