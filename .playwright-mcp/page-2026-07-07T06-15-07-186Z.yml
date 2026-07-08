@@ -21,12 +21,12 @@
       - generic [ref=f3e19]:
         - heading "专栏" [level=1] [ref=f3e20]
         - paragraph [ref=f3e21]: 按专栏浏览文章，当前共 1 个专栏。
-      - link "吃瓜盟主 2057 篇文章 吃瓜盟主直播与长文转录，兼论历史、文化、时事。 含：方法论与思维 · 服饰与汉服 · 疆域与治理 · 军事与战争 →" [ref=f3e23] [cursor=pointer]:
+      - link "吃瓜蒙主 2057 篇文章 吃瓜蒙主直播与长文转录，兼论历史、文化、时事。 含：方法论与思维 · 服饰与汉服 · 疆域与治理 · 军事与战争 →" [ref=f3e23] [cursor=pointer]:
         - /url: /zhuanlan/chigua-mengzhu/
         - generic [ref=f3e24]:
-          - heading "吃瓜盟主" [level=2] [ref=f3e25]
+          - heading "吃瓜蒙主" [level=2] [ref=f3e25]
           - paragraph [ref=f3e26]: 2057 篇文章
-          - paragraph [ref=f3e27]: 吃瓜盟主直播与长文转录，兼论历史、文化、时事。
+          - paragraph [ref=f3e27]: 吃瓜蒙主直播与长文转录，兼论历史、文化、时事。
           - paragraph [ref=f3e28]: 含：方法论与思维 · 服饰与汉服 · 疆域与治理 · 军事与战争
         - generic [ref=f3e29]: →
   - contentinfo [ref=f3e30]:

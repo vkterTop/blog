@@ -22,14 +22,14 @@
         - generic [ref=e20]:
           - link "专栏" [ref=e21] [cursor=pointer]:
             - /url: /zhuanlan/
-          - text: / 吃瓜盟主
-        - heading "吃瓜盟主" [level=1] [ref=e22]
-        - paragraph [ref=e23]: 吃瓜盟主直播与长文转录，兼论历史、文化、时事。
+          - text: / 吃瓜蒙主
+        - heading "吃瓜蒙主" [level=1] [ref=e22]
+        - paragraph [ref=e23]: 吃瓜蒙主直播与长文转录，兼论历史、文化、时事。
         - paragraph [ref=e24]: 共 2057 篇文章，12 个分类。
       - generic [ref=e25]:
         - heading "声明" [level=2] [ref=e26]
         - generic [ref=e27]:
-          - paragraph [ref=e28]: 本专栏内容源自“吃瓜盟主”网络录播视频，经语音识别与 AI 整理后生成，仅供学习交流之用。
+          - paragraph [ref=e28]: 本专栏内容源自“吃瓜蒙主”网络录播视频，经语音识别与 AI 整理后生成，仅供学习交流之用。
           - paragraph [ref=e29]: 若相关内容侵犯原作者、主播或权利人权益，请联系站长处理，本站将在核实后第一时间删除。
       - generic [ref=e30]:
         - heading "分类" [level=2] [ref=e31]

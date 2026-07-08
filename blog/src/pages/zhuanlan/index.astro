@@ -11,7 +11,7 @@ import { withBase } from '../../utils/path.js';
 const allPosts = await getCollection('posts');
 
 const columnEntries = columns.map((col) => {
-  const posts = allPosts.filter((p) => (p.data.column || '吃瓜盟主') === col.name);
+  const posts = allPosts.filter((p) => (p.data.column || '吃瓜蒙主') === col.name);
   const count = posts.length;
   const categories = [...new Set(posts.map((p) => p.data.category))].slice(0, 4);
   return { ...col, count, categories };

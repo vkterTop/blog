@@ -25,7 +25,7 @@
               - link "专栏" [ref=f2e23] [cursor=pointer]:
                 - /url: /zhuanlan/
               - generic [ref=f2e24]: /
-              - link "吃瓜盟主" [ref=f2e25] [cursor=pointer]:
+              - link "吃瓜蒙主" [ref=f2e25] [cursor=pointer]:
                 - /url: /zhuanlan/chigua-mengzhu/
               - generic [ref=f2e26]: /
               - link "思想与文化" [ref=f2e27] [cursor=pointer]:

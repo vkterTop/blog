@@ -25,7 +25,7 @@
               - link "专栏" [ref=f1e23] [cursor=pointer]:
                 - /url: /zhuanlan/
               - generic [ref=f1e24]: /
-              - link "吃瓜盟主" [ref=f1e25] [cursor=pointer]:
+              - link "吃瓜蒙主" [ref=f1e25] [cursor=pointer]:
                 - /url: /zhuanlan/chigua-mengzhu/
               - generic [ref=f1e26]: /
               - link "西方与伪史" [ref=f1e27] [cursor=pointer]:
@@ -47,7 +47,7 @@
           - generic [ref=f1e45]:
             - generic [ref=f1e46]:
               - paragraph [ref=f1e47]: 声明
-              - paragraph [ref=f1e48]: 本文内容源自“吃瓜盟主”网络录播视频，经语音识别与 AI 整理后生成，仅供学习交流之用。若侵犯相关权利人权益，请联系站长删除。
+              - paragraph [ref=f1e48]: 本文内容源自“吃瓜蒙主”网络录播视频，经语音识别与 AI 整理后生成，仅供学习交流之用。若侵犯相关权利人权益，请联系站长删除。
             - link "上一篇 黑格尔误判中国历史为王朝循环论批判" [ref=f1e50] [cursor=pointer]:
               - /url: /zhuanlan/chigua-mengzhu/xifang-yu-weishi/184/
               - generic [ref=f1e51]: 上一篇
