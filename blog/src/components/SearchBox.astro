@@ -1,7 +1,8 @@
 ---
+import { withBase } from '../utils/path.js';
 ---
 
-<form id="search-form" class="w-full max-w-2xl" action="/search/" method="get">
+<form id="search-form" class="w-full max-w-2xl" action={withBase('/search/')} method="get">
   <div class="flex items-center gap-2 border border-paper-dark bg-paper-muted p-1 focus-within:border-vermilion transition-colors">
     <input
       id="search-input"

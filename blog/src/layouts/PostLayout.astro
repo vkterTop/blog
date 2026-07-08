@@ -8,6 +8,7 @@ import MobileMenu from '../components/MobileMenu.astro';
 import { format } from '../utils/date.js';
 import { getColumnBySlug } from '../utils/columns.js';
 import { getCategoryUrlPath } from '../utils/slug.js';
+import { withBase } from '../utils/path.js';
 
 interface Props {
   title: string;
@@ -37,9 +38,9 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'https://huanghan
         <div>
           <header class="mb-10 md:mb-14 text-center border-b border-paper-dark pb-8 md:pb-10">
             <div class="flex flex-wrap items-center justify-center gap-3 mb-5 text-sm">
-              <a href="/zhuanlan/" class="text-ink-muted hover:text-vermilion">专栏</a>
+              <a href={withBase('/zhuanlan/')} class="text-ink-muted hover:text-vermilion">专栏</a>
               <span class="text-ink-muted">/</span>
-              <a href={`/zhuanlan/${columnSlug}/`} class="text-ink-muted hover:text-vermilion">{columnName}</a>
+              <a href={withBase(`/zhuanlan/${columnSlug}/`)} class="text-ink-muted hover:text-vermilion">{columnName}</a>
               <span class="text-ink-muted">/</span>
               <a href={getCategoryUrlPath(categorySlug, columnSlug)} class="text-vermilion font-medium hover:text-vermilion-hover">{category}</a>
               <span class="text-ink-muted">/</span>
@@ -77,13 +78,13 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'https://huanghan
             )}
             <div class="flex flex-col md:flex-row justify-between gap-6">
               {prev && (
-                <a href={`/${prev.slug}/`} class="group flex-1 p-4 bg-paper-muted border border-paper-dark hover:border-paper-dark/80 transition-colors">
+                <a href={prev.slug} class="group flex-1 p-4 bg-paper-muted border border-paper-dark hover:border-paper-dark/80 transition-colors">
                   <span class="text-xs text-ink-muted block mb-1">上一篇</span>
                   <span class="font-serif text-base text-ink group-hover:text-vermilion transition-colors line-clamp-2">{prev.title}</span>
                 </a>
               )}
               {next && (
-                <a href={`/${next.slug}/`} class="group flex-1 p-4 bg-paper-muted border border-paper-dark hover:border-paper-dark/80 transition-colors text-right">
+                <a href={next.slug} class="group flex-1 p-4 bg-paper-muted border border-paper-dark hover:border-paper-dark/80 transition-colors text-right">
                   <span class="text-xs text-ink-muted block mb-1">下一篇</span>
                   <span class="font-serif text-base text-ink group-hover:text-vermilion transition-colors line-clamp-2">{next.title}</span>
                 </a>

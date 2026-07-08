@@ -2,9 +2,10 @@ import { getCollection } from 'astro:content';
 import { getColumnSlug, getColumnBySlug, columns } from '../utils/columns.js';
 import { getPostUrlPath, getCategoryUrlPath } from '../utils/slug.js';
 import { categorySlugs } from '../utils/pinyin.js';
+import { withBase } from '../utils/path.js';
 
 export async function GET(context) {
-  const site = context.site ? String(context.site) : 'https://huanghanxuetang.example.com';
+  const site = context.site ? String(context.site) : 'https://vktertop.github.io';
   const siteUrl = site.endsWith('/') ? site : site + '/';
 
   const posts = await getCollection('posts');
@@ -14,7 +15,7 @@ export async function GET(context) {
   });
 
   const categoryUrls = [];
-  const columnUrls = columns.map((col) => `${siteUrl}zhuanlan/${col.slug}/`);
+  const columnUrls = columns.map((col) => `${siteUrl}${withBase(`/zhuanlan/${col.slug}/`).replace(/^\//, '')}`);
   for (const col of columns) {
     const columnSlug = col.slug;
     for (const categorySlug of Object.values(categorySlugs)) {
@@ -30,10 +31,10 @@ export async function GET(context) {
   }
 
   const staticUrls = [
-    `${siteUrl}`,
-    `${siteUrl}archive/`,
-    `${siteUrl}search/`,
-    `${siteUrl}zhuanlan/`,
+    `${siteUrl}${withBase('/').replace(/^\//, '')}`,
+    `${siteUrl}${withBase('/archive/').replace(/^\//, '')}`,
+    `${siteUrl}${withBase('/search/').replace(/^\//, '')}`,
+    `${siteUrl}${withBase('/zhuanlan/').replace(/^\//, '')}`,
   ];
 
   const allUrls = [...staticUrls, ...columnUrls, ...categoryUrls, ...postUrls];

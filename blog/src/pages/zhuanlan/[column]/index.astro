@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { categorySlugs, getCategoryLabel } from '../../../utils/pinyin.js';
 import { getColumnBySlug, getColumnSlug } from '../../../utils/columns.js';
 import { getPostUrlPath, getCategoryUrlPath } from '../../../utils/slug.js';
+import { withBase } from '../../../utils/path.js';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Navbar from '../../../components/Navbar.astro';
 import MobileMenu from '../../../components/MobileMenu.astro';
@@ -45,7 +46,7 @@ const categoryEntries = Object.entries(categorySlugs).map(([name, slug]) => {
     <div class="mx-auto max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
       <header class="mb-10 border-b border-paper-dark pb-6">
         <div class="text-sm text-ink-muted mb-2">
-          <a href="/zhuanlan/" class="hover:text-vermilion">专栏</a>
+          <a href={withBase('/zhuanlan/')} class="hover:text-vermilion">专栏</a>
           <span class="mx-2">/</span>
           <span class="text-ink-soft">{columnInfo.name}</span>
         </div>
@@ -74,7 +75,7 @@ const categoryEntries = Object.entries(categorySlugs).map(([name, slug]) => {
           {categoryEntries.map((c) => (
             <CategoryCard
               name={c.name}
-              slug={getCategoryUrlPath(c.slug, column).slice(1, -1)}
+              slug={getCategoryUrlPath(c.slug, column)}
               count={c.count}
               keywords={c.keywords}
             />
@@ -88,7 +89,7 @@ const categoryEntries = Object.entries(categorySlugs).map(([name, slug]) => {
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {latestPosts.map((post) => (
-            <PostCard post={{ ...post, slug: getPostUrlPath(post).slice(1, -1) }} />
+            <PostCard post={{ ...post, slug: getPostUrlPath(post) }} />
           ))}
         </div>
       </section>

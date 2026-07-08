@@ -11,6 +11,7 @@ import ScrollToTop from '../../../../../components/ScrollToTop.astro';
 import PostCard from '../../../../../components/PostCard.astro';
 import Pagination from '../../../../../components/Pagination.astro';
 import { getPostUrlPath, getCategoryUrlPath } from '../../../../../utils/slug.js';
+import { withBase } from '../../../../../utils/path.js';
 
 export async function getStaticPaths() {
   const allPosts = await getCollection('posts');
@@ -69,9 +70,9 @@ const pagePosts = categoryPosts.slice(start, start + pageSize);
     <div class="mx-auto max-w-7xl px-4 py-12 md:px-6 lg:px-8 lg:py-16">
       <header class="mb-10 border-b border-paper-dark pb-6">
         <div class="text-sm text-ink-muted mb-2">
-          <a href="/zhuanlan/" class="hover:text-vermilion">专栏</a>
+          <a href={withBase('/zhuanlan/')} class="hover:text-vermilion">专栏</a>
           <span class="mx-2">/</span>
-          <a href={`/zhuanlan/${column}/`} class="hover:text-vermilion">{columnName}</a>
+          <a href={withBase(`/zhuanlan/${column}/`)} class="hover:text-vermilion">{columnName}</a>
           <span class="mx-2">/</span>
           <a href={getCategoryUrlPath(category, column)} class="hover:text-vermilion">{categoryName}</a>
           <span class="mx-2">/</span>
@@ -83,7 +84,7 @@ const pagePosts = categoryPosts.slice(start, start + pageSize);
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {pagePosts.map((post) => (
-          <PostCard post={{ ...post, slug: getPostUrlPath(post).slice(1, -1) }} />
+          <PostCard post={{ ...post, slug: getPostUrlPath(post) }} />
         ))}
       </div>
 

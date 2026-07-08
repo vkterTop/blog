@@ -1,5 +1,6 @@
 import { categorySlugs, getCategoryLabel } from './pinyin.js';
 import { getColumnSlug } from './columns.js';
+import { withBase } from './path.js';
 
 /** Parse a post slug like 'qita-zonghe-001' into categorySlug and numberSlug */
 export function parsePostSlug(slug) {
@@ -26,12 +27,12 @@ export function getPostUrlPath(slugOrPost) {
     columnSlug = getColumnSlug(slugOrPost.data?.column);
   }
   const { categorySlug, numberSlug } = parsePostSlug(slug);
-  return `/zhuanlan/${columnSlug}/${categorySlug}/${numberSlug}/`;
+  return withBase(`/zhuanlan/${columnSlug}/${categorySlug}/${numberSlug}/`);
 }
 
 /** Build a category URL path under a column */
 export function getCategoryUrlPath(categorySlug, columnSlug) {
-  return `/zhuanlan/${columnSlug || getColumnSlug()}/${categorySlug}/`;
+  return withBase(`/zhuanlan/${columnSlug || getColumnSlug()}/${categorySlug}/`);
 }
 
 export { getCategoryLabel };

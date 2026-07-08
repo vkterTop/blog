@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../utils/path.js';
+
 interface Props {
   currentPage: number;
   totalPages: number;
@@ -8,7 +10,7 @@ interface Props {
 const { currentPage, totalPages, baseUrl } = Astro.props;
 
 function pageUrl(page: number) {
-  return page === 1 ? baseUrl : `${baseUrl}page/${page}/`;
+  return withBase(page === 1 ? baseUrl : `${baseUrl}page/${page}/`);
 }
 
 /**

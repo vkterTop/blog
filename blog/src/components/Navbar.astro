@@ -1,11 +1,11 @@
 ---
-import { getCategorySlug } from '../utils/pinyin.js';
+import { withBase } from '../utils/path.js';
 
 const navLinks = [
-  { label: '首页', href: '/' },
-  { label: '专栏', href: '/zhuanlan/' },
-  { label: '归档', href: '/archive/' },
-  { label: '搜索', href: '/search/' },
+  { label: '首页', href: withBase('/') },
+  { label: '专栏', href: withBase('/zhuanlan/') },
+  { label: '归档', href: withBase('/archive/') },
+  { label: '搜索', href: withBase('/search/') },
 ];
 
 const { pathname } = Astro.url;
@@ -13,7 +13,7 @@ const { pathname } = Astro.url;
 
 <header class="sticky top-0 z-40 h-14 md:h-16 border-b border-paper-dark bg-paper/85 backdrop-blur-md">
   <nav class="mx-auto flex h-full max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8">
-    <a href="/" class="flex items-center gap-2 text-ink no-underline">
+    <a href={withBase('/')} class="flex items-center gap-2 text-ink no-underline">
       <span class="font-seal text-2xl text-vermilion">皇汉</span>
       <span class="font-serif text-lg md:text-xl font-semibold tracking-wide">学堂</span>
     </a>

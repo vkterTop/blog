@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import MobileMenu from '../components/MobileMenu.astro';
 import Footer from '../components/Footer.astro';
+import { withBase } from '../utils/path.js';
 ---
 
 <BaseLayout title="页面未找到" description="请求的页面不存在。">
@@ -14,7 +15,7 @@ import Footer from '../components/Footer.astro';
       <p class="font-seal text-6xl text-vermilion mb-4">404</p>
       <h1 class="font-serif text-2xl md:text-3xl font-semibold text-ink mb-4">页面未找到</h1>
       <p class="text-ink-soft mb-8">此页或已迁移，或从未存在。</p>
-      <a href="/" class="inline-block px-6 py-3 bg-vermilion text-paper font-medium hover:bg-vermilion-hover active:scale-[0.98] transition-colors">
+      <a href={withBase('/')} class="inline-block px-6 py-3 bg-vermilion text-paper font-medium hover:bg-vermilion-hover active:scale-[0.98] transition-colors">
         返回首页
       </a>
     </div>

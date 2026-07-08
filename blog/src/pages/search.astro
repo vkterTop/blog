@@ -32,6 +32,10 @@ import SearchBox from '../components/SearchBox.astro';
   <ScrollToTop />
 </BaseLayout>
 
+<script>
+  window.__BASE_URL__ = import.meta.env.BASE_URL;
+</script>
+
 <script is:inline>
   (function () {
     const params = new URLSearchParams(window.location.search);
@@ -42,9 +46,11 @@ import SearchBox from '../components/SearchBox.astro';
     const resultsEl = document.getElementById('search-results');
     if (!resultsEl) return;
 
+    const baseUrl = (typeof window.__BASE_URL__ === 'string' && window.__BASE_URL__) || '/';
+
     function renderResult(item) {
       const numberSlug = item.slug.split('-').pop();
-      const url = `/zhuanlan/${item.columnSlug}/${item.categorySlug}/${numberSlug}/`;
+      const url = `${baseUrl}zhuanlan/${item.columnSlug}/${item.categorySlug}/${numberSlug}/`;
       return `
         <a href="${url}" class="block p-5 bg-paper-muted border border-paper-dark hover:border-paper-dark/80 transition-colors">
           <div class="flex items-center gap-3 mb-2 text-sm">
@@ -62,7 +68,7 @@ import SearchBox from '../components/SearchBox.astro';
 
     async function load() {
       try {
-        const res = await fetch('/search.json');
+        const res = await fetch(`${baseUrl}search.json`);
         if (!res.ok) throw new Error('索引加载失败');
         const data = await res.json();
 
